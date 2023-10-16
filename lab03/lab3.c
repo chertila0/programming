@@ -7,7 +7,7 @@ void fill(int n, int a[])
 {
     int i;
     for (i = 0; i < n; i++)
-        a[i] = rand () % 101 - 50;
+    a[i] = rand () % 101 - 50;
 }
 
 int main()
@@ -24,10 +24,10 @@ int main()
     for (i = 0; i < n; i++)
         {   
             if (A[i] > max)
-                {
-                    max = A[i];
-                    imax = i;
-                }
+            {
+                max = A[i];
+                imax = i;
+            }
             if (A[i] < min)
                 {
                     min = A[i];
