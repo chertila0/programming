@@ -15,8 +15,7 @@ print(meadow_set)
 
 # выведите на консоль все виды цветов
 flowers = garden + meadow
-set(flowers)
-print(flowers)
+print(set(flowers))
 # выведите на консоль те, которые растут и там и там
 print(garden_set & meadow_set)
 
