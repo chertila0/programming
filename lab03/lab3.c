@@ -27,7 +27,6 @@ void minmax(int n, int A[])
                     min = A[i];
                     imin = i;
                 }
-            printf("%4d", A[i]);
         }
     printf("\n");
     printf("Индекс минимального элемента -> %d\n", imin);
@@ -49,6 +48,7 @@ void minmax(int n, int A[])
                     A[i] = 0;         
         }
 }
+
 void newmas(int n, int A[])
 {
     int i;
@@ -57,6 +57,7 @@ void newmas(int n, int A[])
         printf("%4d", A[i]);
     printf("\n");
 }
+
 int main()
 {
     srand(time(NULL));
@@ -65,6 +66,7 @@ int main()
     scanf("%d", &n);
     int A[n];
     fill(n, A);
+    newmas(n, A);
     minmax(n, A);
     newmas(n, A);
 }
