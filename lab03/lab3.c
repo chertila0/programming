@@ -10,17 +10,11 @@ void fill(int n, int a[])
     a[i] = rand () % 101 - 50;
 }
 
-int main()
+void minmax(int n, int A[])
 {
-    srand(time(NULL));
-    int n, imin, imax, min, max;
+    int i, imin, imax, min, max;
     min = 52;
     max = 0;
-    printf("n -> ");
-    scanf("%d", &n);
-    int A[n];
-    fill(n, A);
-    int i;
     for (i = 0; i < n; i++)
         {   
             if (A[i] > max)
@@ -54,9 +48,24 @@ int main()
                 for (i = imax + 1; i < imin && i > imax; i++)
                     A[i] = 0;         
         }
+}
+void newmas(int n, int A[])
+{
+    int i;
     printf("Результат: \n");
     for (i = 0; i < n; i++)
         printf("%4d", A[i]);
     printf("\n");
+}
+int main()
+{
+    srand(time(NULL));
+    int n;
+    printf("n -> ");
+    scanf("%d", &n);
+    int A[n];
+    fill(n, A);
+    minmax(n, A);
+    newmas(n, A);
 }
 
