@@ -104,7 +104,7 @@ $\frac{n-4}{n^2+11} < \frac{n-4}{n^2} < \frac{n}{n^2} = \frac{1}{n} < \varepsilo
 
 $\frac{1}{n} < 0.001$
 
-Ответ: $n_\varepsilon < 1000$
+Ответ: $n_\varepsilon > 1000$
 #### Программное решение
 
 ```python
