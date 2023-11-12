@@ -7,7 +7,7 @@
 
 <p style="text-align: center;">Кафедра прикладной математики</p>
 
-<p style="text-align: center;">ФИО ОБУЧАЮЩЕГОСЯ</p>
+<p style="text-align: center;">Бондаренко Анна Андреевна</p>
 
 <h1 style="text-align: center;">ТЕМА ИНДИВИДУАЛЬНОГО ЗАДАНИЯ</h1>
 
@@ -23,7 +23,7 @@
 
 <p style="text-align: right;">Преподаватель:  </p>
 
-<p style="text-align: right;">Должность, степень ФИО</p>
+<p style="text-align: right;">Ряховский Алексей Васильевич, доцент</p>
 
 <p style="text-align: right;">Студент гр. № 601-31</p>
 
@@ -94,6 +94,17 @@ $\lim\limits_{n\rightarrow\infty}\frac{n-4}{n^2+11} = 0$
 
 Ответ: $0$
 
+Найдем номер $n_\varepsilon$:
+
+$\varepsilon = 0.001$
+
+$|\frac{n-4}{n^2+11}|<0.001$
+
+$\frac{n-4}{n^2+11} < \frac{n-4}{n^2} < \frac{n}{n^2} = \frac{1}{n} < \varepsilon$
+
+$\frac{1}{n} < 0.001$
+
+Ответ: $n_\varepsilon < 1000$
 #### Программное решение
 
 ```python
@@ -136,10 +147,10 @@ print(a)
 
 #### Иллюстрация решения
 
-![](image_1.png)
+![](1.png)
 <p style="text-align: center;">Рис. 1. Иллюстрация решения задачи.</p>
 
-![](image_2.png)
+![](11.png)
 <p style="text-align: center;">Рис. 2. Вывод программы в терминале.</p>
 
 #### Задача 2
@@ -217,10 +228,10 @@ print(a)
 
 #### Иллюстрация решения
 
-![](image_1.png)
+![](2.png)
 <p style="text-align: center;">Рис. 1. Иллюстрация решения задачи.</p>
 
-![](image_2.png)
+![](12.png)
 <p style="text-align: center;">Рис. 2. Вывод программы в терминале.</p>
 
 #### Задача 3
@@ -264,3 +275,48 @@ $\lim\limits_{n\rightarrow\infty}(\frac{n^2}{3n+1} - \frac{2n^2+3}{6n-1}) = -\fr
 Ответ: $-\frac{1}{6}$
 
 #### Программное решение
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from sympy import *
+
+def sequence(n):
+    return (((n**2) / (3*n + 1)) - ((2*n**2 + 3) / (6*n - 1)))
+
+def plot_points(m):
+    x = np.arange(1, m+1)
+    y = sequence(x)
+
+    # (k, 0) - blue colour
+    plt.plot(x, np.zeros_like(x), 'bo', label='$(k, 0)$')
+
+    # (0, x_k) - green color
+    plt.plot(np.zeros_like(x), y, 'go', label='$(0, x_k)$')
+
+    # (k, x_k) - red color
+    plt.plot(x, y, 'ro', label='$(k, x_k)$')
+
+    plt.xlabel('$k$')
+    plt.ylabel('$x_k$')
+    plt.legend()
+    plt.grid()
+    plt.show()
+
+m = 7  # number of points
+plot_points(m)
+
+n = Symbol("n")  
+a = limit(((n**2) / (3*n + 1)) - ((2*n**2 + 3) / (6*n - 1)), n, oo) 
+print(a) 
+```
+<pre>
+
+</pre>
+
+#### Иллюстрация решения
+
+![](3.png)
+<p style="text-align: center;">Рис. 1. Иллюстрация решения задачи.</p>
+
+![](13.png)
+<p style="text-align: center;">Рис. 2. Вывод программы в терминале.</p>
