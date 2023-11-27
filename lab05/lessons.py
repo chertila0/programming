@@ -1,20 +1,16 @@
 import matplotlib.pyplot as plt
-x = [1, 5, 10, 15, 20]
-y1 = [1, 7, 3, 5, 11]
-y2 = [4, 3, 1, 8, 12]
-locs = ['best', 'upper right', 'upper left', 'lower left',
-'lower right', 'right', 'center left', 'center right',
-'lower center', 'upper center', 'center']
-plt.figure(figsize=(12, 12))
-for i in range(3):
-    for j in range(4):
-        if i*4+j < 11:
-            plt.subplot(3, 4, i*4+j+1)
-            plt.title(locs[i*4+j])
-            plt.plot(x, y1, 'o-r', label='line 1')
-            plt.plot(x, y2, 'o-.g', label='line 2')
-            plt.legend(loc=locs[i*4+j])
-        else:
-            break
-plt.savefig('520.png')
+import matplotlib.gridspec as gridspec
+import math
+from matplotlib.font_manager import FontProperties
+from matplotlib.patches import FancyBboxPatch
+import numpy as np
+from mpl_toolkits.axes_grid1.inset_locator import inset_axes
+import numpy as np
+np.random.seed(123)
+vals = np.random.randint(10, size=(7, 7))
+plt.pcolor(vals, cmap=plt.get_cmap('viridis', 11))
+plt.colorbar(orientation='horizontal',
+    shrink=0.9, extend='max', extendfrac=0.2,
+    extendrect=False, drawedges=False)
+plt.savefig('545.png')
 plt.show()
