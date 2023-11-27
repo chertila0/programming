@@ -61,3 +61,4 @@ for n in range(a, b + 1):
         print(ds[0], ds[1])
 ```
 ### 2. Оформите отчёт в README.md.
+Это и есть отчёт md)
