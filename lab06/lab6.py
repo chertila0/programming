@@ -1,4 +1,4 @@
-#1
+# #1
 import itertools
 alp = "ТИМОФЕЙ"
 ar = itertools.product(alp, repeat=5) 
@@ -41,4 +41,4 @@ for n in range(a, b + 1):
             if len(ds) > 2:
                 break
     if len(ds) == 2:
-        print(ds[0], ds[1])
+        print(ds[0], ds[1], ds[0]*ds[1])

@@ -10,4 +10,4 @@ def count(l):
     else:
         return 0
     return k+a
-print(count([1,[2,8, []]]))
+print(count([1,[2,8]]))
