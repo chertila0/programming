@@ -62,7 +62,7 @@ $\frac{x}{x-2}$
 
 $x-2= 0 \rightarrow x \neq 2$
 
-Отсюда следует, что $x \in (- \infin, 2) \cup (2, + \infin)$
+Отсюда следует, что $x \in (- \infty, 2) \cup (2, + \infty)$
 
 Найдем область определения второй функции:
 
@@ -100,7 +100,7 @@ $\begin{cases} \begin{cases} x \geq 5 \\ x > -3 \end{cases} \\
 
 Найдем объединение и пересечение всех получившихся промежутков:
 
-$x \in (-\infin, -5] \cup [-1, +\infin)$
+$x \in (-\infty, -5] \cup [-1, +\infty)$
 
 Построим графики данных функций
 
@@ -147,5 +147,91 @@ plt.show()
 ![](2.png)
 <p style="text-align: center;">Рис. 2.</p>
 
+#### Задача 2
 
+Вычислить пределы данных функций двумя способами: аналитически и используя библиотеки Python для символьных вычислений. Используя графические пакеты Python, построить графики функций, иллюстрирующие поведение функций в окрестностях тех точек, в которых вычисляется предел. Если предел существует, построить на соответствующем рисунке точку, изображающую предел данной функции.
+
+Функция: $\frac{xtgx}{\pi-x}$
+
+Вычислим предел этой функции
+
+$\lim\limits_{x\rightarrow\pi}\frac{xtgx}{\pi-x}$
+
+Найдем пределы числителя и знаменателя:
+
+- $\lim\limits_{x\rightarrow\pi}xtgx=0$
+- $\lim\limits_{x\rightarrow\pi}(\pi-x)=0$
+
+Поскольку выражение $\frac{0}{0}$ является неопределенностью, преобразуем его с помощью замены переменных:
+
+$y = \pi-x \rightarrow x = \pi+y$
+
+$\lim\limits_{x\rightarrow\pi}\frac{xtgx}{\pi-x}= \lim\limits_{y\rightarrow0}\frac{(\pi+y)tg(\pi+y)}{\pi-(\pi+y)}$
+
+Воспользуемся правилом приведения: $tg(\pi+y)= tgy$
+
+$\lim\limits_{y\rightarrow0}\frac{(\pi+y)tg(\pi+y)}{\pi-(\pi+y)} = -\lim\limits_{y\rightarrow0}\frac{(\pi+y)tgy}{y}$
+
+Воспользуемся следствием из первого замечательного предела:
+
+$-\lim\limits_{y\rightarrow0}\frac{(\pi+y)tgy}{y} = - \lim\limits_{y\rightarrow0}(\pi+y)=-\pi$
+
+Программа для вычиления предела заданной функции и построения графика функции:
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+import sympy as sp
+from sympy import Symbol,limit
+from math import pi,log
+
+
+x1 = np.linspace(-np.pi/2 + 0.01, np.pi/2 - 0.01, 1000)
+y1 = x1 * np.tan(x1) / (np.pi - x1)
+x2 = np.linspace(np.pi/2 + 0.01, np.pi - 0.01, 1000)
+y2 = x2 * np.tan(x2) / (np.pi - x2)
+x3 = np.linspace(np.pi + 0.01, 3*np.pi/2 - 0.01)
+y3 = x3 * np.tan(x3) / (np.pi - x3)
+x4 = np.linspace(3*np.pi/2 + 0.01, 2*np.pi - 0.01)
+y4 = x4 * np.tan(x4) / (np.pi - x4)
+
+n = Symbol('n') 
+a = limit(n * sp.tan(n) / (sp.pi - n), n, sp.pi)
+print(a)
+
+plt.plot(x1, y1, x2, y2, x3, y3, x4, y4, color='red')
+plt.plot(pi,a,'o', color='orange')
+plt.grid(True)
+plt.show()
+```
+Результат работы программы:
+
+![](3.png)
+<p style="text-align: center;">Рис. 3. График функции и предел данной функции.</p>
+
+![](4.png)
+<p style="text-align: center;">Рис. 4. Вывод результата в терминале.</p>
+
+#### Задача 3
+
+Найти (аналитически и используя библиотеки Python для символьных вычислений) точки разрыва функции и определить их тип. Используя графические пакеты Python построить графики функций, иллюстрирующие поведение функций в окрестностях точек разрыва.
+
+Функция:
+
+$f(x) = \begin{cases}ln(1-x), если \text{ } x < 1 \\
+x^2 - x, если\text{ } x \geq 1\end{cases}$
+
+Найдем пределы этой функции при $x$ стремящемся к 1 слева и справа
+
+Предел слева:
+
+$\lim\limits_{x\rightarrow1-0}ln(1-x)$
+
+При подстановке получим $ln0$, но логарифма с аргументом равным нулю не существует, следовательно, точка с координатами $(1, 0)$ является асимптотой графика функции $ln(1-x)$. Функция $ln(1-x)$ - убывающая, следовательно:
+
+$\lim\limits_{x\rightarrow1-0}ln(1-x) = -\infty$
+
+Предел справа:
+
+$\lim\limits_{x\rightarrow1+0}(x^2 - x)$
 
