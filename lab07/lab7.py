@@ -1,13 +1,14 @@
-def count(l):
-    k = len(l)
-    a = 0
-    if k:
-        for i in l:
-            if i is list:
-                a += count(i)
-            else:
-                a += 1
-    else:
-        return 0
-    return k+a
-print(count([1,[2,8]]))
+a = [1,[2,[4],8]]
+# def rec_sum(lst):
+#     s = 0
+#     for i in lst:
+#         if isinstance(i, list):
+#             s += rec_sum(i) + 1
+#         else:
+#             s += 1
+#     return s
+# print(rec_sum(a))
+
+
+def sum_l(lst):
+    
