@@ -22,10 +22,6 @@ def f(n):
 # def g(x,y):
 #     return hg(x)(y)
 # print(g(5,6))
-@f(4)
-# def calc(x,y,z):
-#     return make_calc(x,y)(z)
-# print(calc('+', 1, 3))
 def make_calc(operation, a):
     def cilc(b):
         nonlocal a
@@ -39,7 +35,10 @@ def make_calc(operation, a):
             a =  round(a / b, 2)
         return a
     return cilc
+@f(4)
+def calc(x,y,z):
+    return make_calc(x,y)(z)
+print(calc('+', 1, 3))
 
-print(make_calc('+',1)(2))
 
 
