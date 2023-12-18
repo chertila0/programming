@@ -58,8 +58,8 @@ def calculate_xi(n):
         return 1
     if n == 2:
         return -1 / 8
-    xi_1 = 1
-    xi_2 = -1 / 8
+    xi_2 = 1
+    xi_1 = -1 / 8
     xi = 0
     for i in range(3, n+1):
         xi = ((i - 1) * xi_1) / 3 + ((i - 2) * xi_2) / 4

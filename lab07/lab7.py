@@ -1,3 +1,4 @@
+
 def count(lst):
     s = 0
     for i in lst:
@@ -20,7 +21,9 @@ print(count([]))
 print(count([1, 2, 3]))
 print(count(["x", "y", ["z"]]))
 print(count([1, 2, [3, 4, [5]]]))
-print(calculate_xi(1))
-print(calculate_xi(2))
+
+for i in range(1, 11):
+    print(calculate_xi(i))
+
 
     
