@@ -7,10 +7,14 @@ def f(n):
         results = []
         @wraps(func)
         def wrapper(*args, **kwargs):
-            for _ in range(n):
-                result = func(*args, **kwargs)
-                results.append(result)
-            return results if 
+            print(args, kwargs)
+            if not(args or kwargs):
+                return results
+            else:
+                for _ in range(n):
+                    result = func(*args, **kwargs)
+                    results.append(result)
+                return result
         return wrapper
     return decorator
 
@@ -24,7 +28,7 @@ def f(n):
 # print(g(5,6))
 @f(4)
 def make_calc(operation, a):
-    def cilc(b):
+    def cilc(b=1):
         nonlocal a
         if operation == '+':
             a += b
@@ -37,4 +41,8 @@ def make_calc(operation, a):
         return a
     return cilc
 
-print(make_calc('+', 1)(1))
+
+calc = make_calc('+', 1)
+
+
+print(calc())
