@@ -8,7 +8,7 @@
 
 <p style="text-align: center;">Бондаренко Анна Андреевна</p>
 
-<h1 style="text-align: center;">Числовые последовательности.</h1>
+<h1 style="text-align: center;">Числовые последовательности </h1>
 
 <p style="text-align: center;">Дисциплина «Математический анализ»</p>
 
@@ -40,7 +40,7 @@
 
 <p style="text-align: center;">Сургут 2023 г.</p>
 
-<h3 style="text-align: center;">Лабораторная работа №2. </h3>
+<h3 style="text-align: center;">Лабораторная работа №2.</h3>
 
 #### Задание
 
