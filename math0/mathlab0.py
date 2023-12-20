@@ -28,5 +28,6 @@ m = 7  # number of points
 plot_points(m)
 
 n = Symbol("n")  
-a = limit((n-4)/(n**2+11), n, oo)  
+a = limit((n-4)/(n**2+11), n, oo)
+plt.plot(a,0, 'ro', color='orange') 
 print(a)
