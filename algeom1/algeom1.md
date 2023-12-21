@@ -172,6 +172,7 @@ print('Уравнение прямой: y = {}x + {}'.format(k, b))
 ![](5.png)
 
 <p style="text-align: center;">Рис. 5. Иллюстрация решения задачи №3.</p>
+
 ![](6.png)
 
 <p style="text-align: center;">Рис. 6. Вывод программы в терминале.</p>
