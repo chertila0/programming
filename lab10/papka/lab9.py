@@ -5,6 +5,6 @@ def rand_num(minn, maxx):
     random_ch = (seed % (maxx - minn + 1)) + minn
     return random_ch
 
-mins = 20
-maxs = 21 
-print(rand_num(mins, maxs))
+# mins = 20
+# maxs = 21 
+# print(rand_num(mins, maxs))

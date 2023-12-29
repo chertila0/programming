@@ -18,14 +18,7 @@ def f(n):
         return wrapper
     return decorator
 
-# def hg(n):
-#     def gh(m):
-#         return n*m
-#     return gh
-# @f(4)
-# def g(x,y):
-#     return hg(x)(y)
-# print(g(5,6))
+
 def make_calc(operation, a):
     @f(4)
     def cilc(b=1):
@@ -42,5 +35,3 @@ def make_calc(operation, a):
     return cilc
 
 
-calc = make_calc('+', 1)
-print(calc(10))
