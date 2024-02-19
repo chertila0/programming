@@ -6,18 +6,15 @@ class rectangle():
     
     def ploshad(self):
         S = self.S
-        return S
+        return round(S,1)
     
     def rad_vpis(self):
         if self.side1 == self.side2 :
-            return self.side1 / 2
+            return round(self.side1 / 2)
         else:
             return 'B прямоугольник нельзя вписать окружность(('
     
     def rad_opis(self):
-        r = ((self.side1)**2 + (self.side2)**2) ** 0.5 / 2
-        return r
+        R = ((self.side1)**2 + (self.side2)**2) ** 0.5 / 2
+        return round(R,1)
     
-
-rec1 = rectangle(5, 5)
-print(rec1.rad_vpis())

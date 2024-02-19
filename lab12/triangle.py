@@ -8,21 +8,19 @@ class triangle():
 
     def ploshad(self):
         S = self.S
-        return S
+        return round(S,1)
     
 
     def rad_vpis(self):
         p = self.p
         S = self.S
         r = S / p
-        return r
+        return round(r,1)
     
 
     def rad_opis(self):
         S = self.S
         R = (self.side1 * self.side2 * self.side3) / (4 * S)
-        return R
+        return round(R,1)
 
 
-tri1 = triangle(3,4,5)
-print(tri1.rad_opis())

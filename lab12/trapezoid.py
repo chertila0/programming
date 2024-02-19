@@ -23,9 +23,7 @@ class trapezoid():
             diag = (self.levbok ** 2 + self.verhosn * self.nizhosn)
             p = (self.levbok + self.verhosn + self.nizhosn)/2
             R = (diag * self.nizhosn * self.levbok) / (4*(p*(p-diag)*(p-self.levbok)*(p-self.nizhosn))**0.5)
-            return R
+            return round(R,1)
         else:
             return 'Окружность можно описать только около равнобедренной трапеции, нельзя описать окружность около этой трапеции и найти радиус('
 
-trap1 = trapezoid(2,4,6,4)
-print(trap1.rad_vpis())
