@@ -1,18 +1,32 @@
 from appJar import gui
+from triangle import triangle as tri
 
-app = gui()
+app=gui()
 
-def open_window1():
-    app.startSubWindow("Window 1", modal=True)
-    app.addLabel("l1", "This is Window 1")
-    app.stopSubWindow()
 
-def open_window2():
-    app.startSubWindow("Window 2", modal=True)
-    app.addLabel("l2", "This is Window 2")
-    app.stopSubWindow()
+app.setBg('light blue')
+app.addLabel('Здравствуйте! Какую фигуру вы хотите выбрать?')
+app.addLabelOptionBox('Figure',['Треугольник','Трапеция','Квадрат'])
+app.addLabel('Отлично, теперь выберите что вы хотите посчитать:')
+app.addLabelOptionBox('Параметр', ['Площадь фигуры','Радиус описанной окружности','Радиус вписанной окружности'])
 
-app.addButton("Open Window 1", open_window1)
-app.addButton("Open Window 2", open_window2)
+def press(win):
+    app.showSubWindow(win)
+
+app.startSubWindow('Продолжить')
+
+def result():
+    app.infoBox('Результат вычислений', f'Результат равен {res}')
+
+if app.getOptionBox('Figure') == 'Треугольник' and app.getOptionBox('Параметр') == 'Площадь фигуры':
+    app.addNumericEntry('Сторона 1')
+    app.addNumericEntry('Сторона 2')
+    app.addNumericEntry('Сторона 3')
+    app.addButton('Результат', result)
+    res = tri(app.getEntry('Сторона 1'), app.getEntry('Сторона 2'), app.getEntry('Сторона 3')).ploshad()
+
+
+app.stopSubWindow()
+app.addButton('Продолжить', press)
 
 app.go()
