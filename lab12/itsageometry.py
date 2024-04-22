@@ -12,6 +12,8 @@ app.addLabelOptionBox('Фигура',['Треугольник','Трапеция
 app.addLabel('Отлично, теперь выберите что вы хотите посчитать:')
 app.addLabelOptionBox('Параметр', ['Площадь фигуры','Радиус описанной окружности','Радиус вписанной окружности'])
 
+type_figure = ''
+type_operation =''
 def press(win):
     app.showSubWindow(win)
 
@@ -27,32 +29,59 @@ app.addNumericEntry('Сторона 2')
 app.addNumericEntry('Сторона 3')
 app.addNumericEntry('Сторона 4')
 def result(res):
-    if app.getEntry('Сторона 1') == None or app.getEntry('Сторона 2') == None or app.getEntry('Сторона 3') == None and app.getEntry('Сторона 4') != None:
-        res = 'Кажется вы ошиблись при вводе сторон! Подсказка: вводите стороны по порядку, не пропуская поля ввода.'
-    elif app.getEntry('Сторона 3') == None and app.getEntry('Сторона 4') == None:
-        if app.getOptionBox('Параметр') == 'Площадь фигуры':
-            res = rect(app.getEntry('Сторона 1'), app.getEntry('Сторона 2')).ploshad()
-        elif app.getOptionBox('Параметр') == 'Радиус описанной окружности':
-            res = rect(app.getEntry('Сторона 1'), app.getEntry('Сторона 2')).rad_opis()
+    type_operation = app.getOptionBox('Параметр')
+    type_figure = app.getOptionBox('Фигура')
+    storona_1 = app.getEntry('Сторона 1')
+    storona_2 = app.getEntry('Сторона 2')
+    storona_3 = app.getEntry('Сторона 3')
+    storona_4 = app.getEntry('Сторона 4')
+    res = 'пусто'
+    if type_operation == 'Площадь фигуры' and type_figure == 'Прямоугольник':
+        if storona_1 != None and storona_2 != None and storona_3 == None and storona_4 == None:
+            res = rect(storona_1, storona_2,storona_3,storona_4).ploshad()
+        else: 
+            res = "Вы ошиблись при вводе сторон! Подсказка: вводите стороны по порядку"
+    if type_operation == 'Площадь фигуры' and type_figure == 'Треугольник':
+        if storona_1 != None and storona_2 != None and storona_3 != None and storona_4 == None:
+            res = tri(storona_1,storona_2,storona_3,storona_4).ploshad()
         else:
-            res = rect(app.getEntry('Сторона 1'), app.getEntry('Сторона 2')).rad_vpis()
-    elif app.getEntry('Сторона 4') == None:
-        if app.getOptionBox('Параметр') == 'Площадь фигуры':
-            res = tri(app.getEntry('Сторона 1'), app.getEntry('Сторона 2'), app.getEntry('Сторона 3')).ploshad()
-        elif app.getOptionBox('Параметр') == 'Радиус описанной окружности':
-            res = tri(app.getEntry('Сторона 1'), app.getEntry('Сторона 2'), app.getEntry('Сторона 3')).rad_opis()
+            res = "Вы ошиблись при вводе сторон! Подсказка: вводите стороны по порядку"
+    if type_operation == 'Площадь фигуры' and type_figure == 'Трапеция':
+        if storona_1 != None and storona_2 != None and storona_3 != None and storona_4 != None:
+            res = trap(storona_1,storona_2,storona_3,storona_4).ploshad()
         else:
-            res = tri(app.getEntry('Сторона 1'), app.getEntry('Сторона 2'), app.getEntry('Сторона 3')).rad_vpis()
-    else:
-        if app.getOptionBox('Параметр') == 'Площадь фигуры':
-            res = trap(app.getEntry(''), app.getEntry(''), app.getEntry(''), app.getEntry('')).ploshad()
-        elif app.getOptionBox('Параметр') == 'Радиус описанной окружности':
-            res = trap(app.getEntry(''), app.getEntry(''), app.getEntry(''), app.getEntry('')).rad_opis()
+            res = "Вы ошиблись при вводе сторон! Подсказка: вводите стороны по порядку"
+    if type_operation == 'Радиус описанной окружности' and type_figure == 'Прямоугольник':
+        if storona_1 != None and storona_2 != None and storona_3 == None and storona_4 == None:
+            res = rect(storona_1,storona_2,storona_3,storona_4).rad_opis()
         else:
-            res = trap(app.getEntry(''), app.getEntry(''), app.getEntry(''), app.getEntry('')).rad_vpis()
-    app.infoBox('', f'Результат:{res}')
+            res = "Вы ошиблись при вводе сторон! Подсказка: вводите стороны по порядку"
+    if type_operation == 'Радиус описанной окружности' and type_figure == 'Треугольник':
+        if storona_1 != None and storona_2 != None and storona_3 != None and storona_4 == None:
+            res = tri(storona_1,storona_2,storona_3,storona_4).rad_opis()
+        else:
+            res = "Вы ошиблись при вводе сторон! Подсказка: вводите стороны по порядку"
+    if type_operation == 'Радиус описанной окружности' and type_figure == 'Трапеция':
+        if storona_1 != None and storona_2 != None and storona_3 != None and storona_4 != None:
+            res = trap(storona_1, storona_2, storona_3,storona_4).rad_opis()
+    if type_operation == 'Радиус вписанной окружности' and type_figure == 'Прямоугольник':
+        if storona_1 != None and storona_2 != None and storona_3 == None and storona_4 == None:
+            res = rect(storona_1,storona_2,storona_3,storona_4).rad_vpis()
+        else:
+            res = "Вы ошиблись при вводе сторон! Подсказка: вводите стороны по порядку"
+    if type_operation == 'Радиус вписанной окружности' and type_figure == 'Треугольник':
+        if storona_1 != None and storona_2 != None and storona_3 != None and storona_4 == None:
+            res = tri(storona_1,storona_2,storona_3,storona_4).rad_vpis()
+        else:
+            res = "Вы ошиблись при вводе сторон! Подсказка: вводите стороны по порядку"
+    if type_operation == 'Радиус вписанной окружности' and type_figure == 'Трапеция':
+        if storona_1 != None and storona_2 != None and storona_3 != None and storona_4 != None:
+            res = trap(storona_1,storona_2,storona_3,storona_4).rad_vpis()
+        else:
+            res = "Вы ошиблись при вводе сторон! Подсказка: вводите стороны по порядку"
+    app.infoBox('',f'Результат: {res}')
+
 app.addButton('Рассчитать', result)
 app.stopSubWindow()
-app.addButton('Продолжить', press)
-
+app.addButton('Продолжить',press)
 app.go()
