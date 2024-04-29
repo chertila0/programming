@@ -5,18 +5,23 @@ from trapezoid import trapezoid as trap
 
 app=gui()
 
+#Функция открытия первого подокна
+def first_win(win):
+    app.showSubWindow(win)
 
+#Описание главного окна
 app.setBg('light blue')
 app.addLabel('Здравствуйте! Какую фигуру вы хотите выбрать?')
 app.addLabelOptionBox('Фигура',['Треугольник','Трапеция','Прямоугольник'])
 app.addLabel('Отлично, теперь выберите что вы хотите посчитать:')
 app.addLabelOptionBox('Параметр', ['Площадь фигуры','Радиус описанной окружности','Радиус вписанной окружности'])
+app.addButton('Продолжить',first_win)
+
+def second_win():
+    
 
 
-def press(win):
-    app.showSubWindow(win)
-
-
+#Описание второго окна
 app.startSubWindow('Продолжить')
 app.addLabel('Введите стороны выбранной фигуры.')
 app.addLabel('Подсказка: для прямоугольника достаточно 2-х строн, для треугольника необходимо ввести все 3 стороны,')
@@ -26,6 +31,7 @@ app.addNumericEntry('Сторона 1')
 app.addNumericEntry('Сторона 2')
 app.addNumericEntry('Сторона 3')
 app.addNumericEntry('Сторона 4')
+app.addButton('Рассчитать', second_win)
 
 app.startSubWindow("Рассчитать")
 type_operation = app.getOptionBox('Параметр')
@@ -83,5 +89,5 @@ app.stopSubWindow()
 
 app.addButton('Рассчитать', press)
 app.stopSubWindow()
-app.addButton('Продолжить',press)
+
 app.go()
