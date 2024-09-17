@@ -87,7 +87,7 @@ def second_win(): pass
 # app.addLabel(f'Результат: {res}')
 # app.stopSubWindow()
 
-app.addButton('Рассчитать', press)
-app.stopSubWindow()
+# app.addButton('Рассчитать', press)
+# app.stopSubWindow()
 
 app.go()
