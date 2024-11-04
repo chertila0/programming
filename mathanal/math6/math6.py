@@ -13,7 +13,7 @@ df_dydy = diff(df_dy, y) # смешанная производная по у
 args = [(x, 1), (y, 1)] # аргументы для подстановки, x = 1, y = 1 
  
 df = df_dx.subs(args)*x + df_dy.subs(args)*y # первый дифференциал 
-df2 = -(1/2)*(df_dxdx.subs(args)*(x - 1)*(x - 1) + 2*df_dxdy.subs(args)*(x - 1)*(y - 1) + df_dydy.subs(args)*(y - 1)*(y - 1))
+df2 = -(1/2)*(df_dxdx.subs(args)*(x - 1)*(x - 1) + 2*df_dxdy.subs(args)*(x - 1)*(y - 1) + df_dydy.subs(args)*(y - 1)*(y - 1)) # второй дифференциал
 Taylor_polynomial = f.subs(args) + df + df2 # многочлен Тейлора 2-й степени 
  
 print("P(x, y) = ", Taylor_polynomial)
